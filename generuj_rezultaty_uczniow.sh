@@ -4,7 +4,7 @@ do
    make $line
    mkdir results
    rm -f results/$line.txt
-   for sort_name in selection_sort insertion_sort bubble_sort quick_sort
+   for sort_name in selection_sort insertion_sort bubble_sort quick_sort hoere_iter hoere_rec
     do
     for i in {1..10}
     do

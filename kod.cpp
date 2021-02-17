@@ -7,7 +7,7 @@
 using namespace std;
 
 const int S = 1e6 + 7;
-int n, tab[S]; // zmienne globalne z ktorych korzystamy (tab[0] .. tab[n-1])
+int n, tab[S], result; // zmienne globalne z ktorych korzystamy (tab[0] .. tab[n-1])
 int tab_buf[S]; 
 
 void bubble_sort(){
@@ -30,6 +30,20 @@ void quick_sort(int poc = 0, int kon = n - 1){
 
 }
 
+void hoere_iter(int k){
+    // algorytm hoera'a iteracyjnie. Znajdz k-ty najmniejszy element w tab_buf
+    // WSADZAMY WYNIK DO ZMIENNEJ GLOBALNEJ RESULT!
+    sort(tab_buf, tab_buf + k);
+    result = tab_buf[k - 1];
+}
+
+void hoere_rec(int k){
+    // algorytm hoera'a rekurencyjnie. Znajdz k-ty najmniejszy element w tab_buf
+    // WSADZAMY WYNIK DO ZMIENNEJ GLOBALNEJ RESULT!
+    // W WERSJI REKURENCYJNEJ NALEZY UZYC FUNKCJI POMOCNICZEJ (KTORA JEST REKURENCYJNA)!
+
+}
+
 int rnd(int poc, int kon){
     return poc + rand() % (kon - poc + 1);
 }
@@ -41,14 +55,18 @@ void gen_tab(){
     }
 }
 
-bool check(){
+bool check(bool its_hoere, int k){
     sort(tab_buf, tab_buf + n);
-    for (int i = 0; i < n; i ++){
-        if (tab_buf[i] != tab[i]){
-            return false;
+    if (!its_hoere){
+        for (int i = 0; i < n; i ++){
+            if (tab_buf[i] != tab[i]){
+                return false;
+            }
         }
+        return true;
+    } else {
+        return tab_buf[k - 1] == result;
     }
-    return true;
 }
 
 long long current_ms(){
@@ -60,6 +78,7 @@ long long current_ms(){
 
 
 int main(int argc, char* argv[]){
+    srand(time(NULL));
     string s;
     if (argc != 3){
         n = 10;
@@ -72,6 +91,7 @@ int main(int argc, char* argv[]){
 
     gen_tab();
     
+    int k = rnd(1, n); 
     long long time_start = current_ms();
     if (s == "bubble_sort"){
         bubble_sort();
@@ -81,11 +101,15 @@ int main(int argc, char* argv[]){
         quick_sort();
     } else if (s == "selection_sort"){
         selection_sort();
+    } else if (s == "hoere_iter"){
+        hoere_iter(k);
+    } else if (s == "hoere_rec"){
+        hoere_rec(k);
     } else {
         return 1; 
     }
 
-    cout << (check() ? "OK\n" : "WA\n");
+    cout << (check(s == "hoere_iter" || s == "hoere_rec", k) ? "OK\n" : "WA\n");
     cout << current_ms() - time_start << endl;
 
     return 0;
