@@ -37,7 +37,7 @@ Generate template for windows:
 $ python3.9 generuj_template.py
 ``` 
 
-Generate personal file for every student 
+Generate personal files for every student 
 
 ```
 $ ./generuj_pliki_dla_uczniow.sh
