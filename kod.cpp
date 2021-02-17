@@ -33,8 +33,7 @@ void quick_sort(int poc = 0, int kon = n - 1){
 void hoere_iter(int k){
     // algorytm hoera'a iteracyjnie. Znajdz k-ty najmniejszy element w tab_buf
     // WSADZAMY WYNIK DO ZMIENNEJ GLOBALNEJ RESULT!
-    sort(tab_buf, tab_buf + k);
-    result = tab_buf[k - 1];
+    
 }
 
 void hoere_rec(int k){
