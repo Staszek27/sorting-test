@@ -12,3 +12,18 @@ Sometimes pupils needs to comment lines of codes which are working only under Ma
 4. Launch "generuj_rezultaty_uczniow.sh". It creates images folder with solutions.
 
 ![image](https://i.imgur.com/Itdqkwo.png)
+
+
+# Another useful options
+
+Clear results and work files"
+
+```
+$ ./czysc_wszystko.sh
+``` 
+
+Generate template for windows:
+
+```
+$ python3.9 generuj_template.py
+``` 
