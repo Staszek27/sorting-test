@@ -1,6 +1,3 @@
-// to jest templatka dla uczniow
-// czasami uczniowie beda zmuszeni zakomentowac pare rzeczy (np. biblioteke sys/time.h)
-
 #include <iostream>
 #include <algorithm>
 #include <sys/time.h>
@@ -11,29 +8,34 @@ int n, tab[S], result; // zmienne globalne z ktorych korzystamy (tab[0] .. tab[n
 int tab_buf[S]; 
 
 void bubble_sort(){
-    // sortowanie bąbelkowe TOOD
-   
+    // sortowanie bąbelkowe 
+    
+    // TOOD
 }
 
 void selection_sort(){
-    // sortowanie przez wybor TODO
+    // sortowanie przez wybor 
 
+    // TODO
 }
 
 void insertion_sort(){
-    // sortowanie przez wstawianie TODO
+    // sortowanie przez wstawianie 
 
+    // TODO
 }
 
 void quick_sort(int poc = 0, int kon = n - 1){
-    // sortowanie szybkie * TODO
-
+    // sortowanie szybkie 
+    
+    // TODO
 }
 
 void hoere_iter(int k){
     // algorytm hoera'a iteracyjnie. Znajdz k-ty najmniejszy element w tab_buf
     // WSADZAMY WYNIK DO ZMIENNEJ GLOBALNEJ RESULT!
     
+    // TODO
 }
 
 void hoere_rec(int k){
@@ -41,6 +43,7 @@ void hoere_rec(int k){
     // WSADZAMY WYNIK DO ZMIENNEJ GLOBALNEJ RESULT!
     // W WERSJI REKURENCYJNEJ NALEZY UZYC FUNKCJI POMOCNICZEJ (KTORA JEST REKURENCYJNA)!
 
+    // TODO
 }
 
 int rnd(int poc, int kon){
@@ -72,6 +75,7 @@ long long current_ms(){
     struct timeval tp;
     gettimeofday(&tp, NULL);
     long long ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;
+
     return ms;
 }
 
@@ -82,7 +86,7 @@ int main(int argc, char* argv[]){
     if (argc != 3){
         n = 10;
         s = "selection_sort";
-        // wypelniamy tutaj co chcemy testowac
+        // TESTING MODE HERE
     } else {
         n = atoi(argv[1]);
         s = argv[2];
@@ -108,8 +112,9 @@ int main(int argc, char* argv[]){
         return 1; 
     }
 
+    long long t =  current_ms() - time_start;
     cout << (check(s == "hoere_iter" || s == "hoere_rec", k) ? "OK\n" : "WA\n");
-    cout << current_ms() - time_start << endl;
+    cout << t << endl;    
 
     return 0;
 }

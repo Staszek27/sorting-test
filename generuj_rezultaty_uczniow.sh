@@ -9,6 +9,9 @@ do
     for i in {1..10}
     do
         j=$(($i * 1000))
+        if [ $sort_name == "hoere_iter" ] || [ $sort_name == "hoere_rec" ]; then
+            j=$(($j * 100));
+        fi
         echo $line $j $sort_name
         echo $j $sort_name >> results/$line.txt
         ./$line $j $sort_name >> results/$line.txt
