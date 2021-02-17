@@ -12,11 +12,8 @@ It was created to test students' skills in sorting techniques. You need Mac/Linu
 
 | :mag_right: Students can test locally their solutions changing these lines in "kod.cpp":   |
 |-------------------------------------------|
-
-
 ![image](https://i.imgur.com/RXgLme0.png)
-Sometimes students need to comment lines of codes which are working only under Mac/Linux system. |
-|-|
+
 
 6. Copy the content of the students's functions to the generated files.
 
